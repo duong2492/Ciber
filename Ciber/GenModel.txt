@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=DUONGKISS\MSSQLSERVER01;Database=CiberDB;User Id=sa;Password=1234567;  TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
