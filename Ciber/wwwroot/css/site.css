@@ -22,3 +22,10 @@ body {
 .select2-container .select2-selection--single {
     height: 35px !important;
 }
+.navbar-nav {
+    list-style: none;
+}
+    .navbar-nav > li > a {
+        padding: 15px;
+        line-height: 50px;
+    }

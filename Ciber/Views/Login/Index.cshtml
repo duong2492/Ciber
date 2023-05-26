@@ -1,0 +1,33 @@
+﻿@model Ciber.Models.AccountLogin
+<form asp-controller="Login" class="form-horizontal" enctype="multipart/form-data" asp-action="Login" method="post" id="Myform">
+    <div class="row">
+        <div class="col-md-3 offset-md-3"></div>
+        <div class="offset-md-4 col-md-4 ">
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">UserName</label>
+                <input type="text" id="txtUserName" class="form-control" asp-for="UserName" />
+
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Password</label>
+                <input type="password" id="txtPassword" class="form-control" asp-for="Password" />
+            </div>
+            <br />
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button><br />
+            <div class="col-sm-12">
+                @if (TempData["MsgLogin"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @Html.Raw(TempData["MsgLogin"])
+                    </div>
+                }
+            </div>
+            <p class="text-center">
+                (Username: Admin - Password: 123456)
+            </p>
+        </div>
+    </div>
+</form>
