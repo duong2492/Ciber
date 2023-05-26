@@ -28,7 +28,7 @@ namespace Ciber.Controllers
             //{
             //    return Redirect("/Login/Index");
             //}
-            var orders = from order in _orderRepository.GetOrdersList(ProductCategory_ID)
+            var orders = from order in _orderRepository.GetAllOrders(ProductCategory_ID)
                          select order;
             var productcategories = from pc in _productCategoryRepository.GetProductCategories()
                                     select pc;

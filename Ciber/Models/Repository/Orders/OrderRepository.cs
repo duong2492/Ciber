@@ -41,7 +41,7 @@ namespace Ciber.Models.Repository.Orders
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-        public List<OrderDTO> GetOrdersList(int ProductCategory_ID)
+        public List<OrderDTO> GetAllOrders(int ProductCategory_ID)
         {
             var query = (from order in _context.Orders.Where(x => x.Status == 1)
                          join product in _context.Products
