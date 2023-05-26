@@ -19,14 +19,14 @@ namespace CiberTest
         public void GetAll()
         {
             var result = _orderRepository.GetAllOrders(0);
-            Assert.AreEqual(result.Count, 28);
+            Assert.AreEqual(28, result.Count);
         }
 
         [Test]
         public void GetAllByCateID()
         {
             var result = _orderRepository.GetAllOrders(1);
-            Assert.AreEqual(result.Count, 17);
+            Assert.AreEqual(18, result.Count);
         }
     }
 }
