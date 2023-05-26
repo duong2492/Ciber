@@ -7,9 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\DataManager\OrderDataManager.cs" />
-    <Compile Remove="Models\Paging\PagedResult.cs" />
-    <Compile Remove="Models\Paging\PagingImplementation.cs" />
     <Compile Remove="Models\Repository\IDataRepository.cs" />
   </ItemGroup>
 
@@ -20,11 +17,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\DataManager\" />
-    <Folder Include="Models\Paging\" />
   </ItemGroup>
 
 </Project>

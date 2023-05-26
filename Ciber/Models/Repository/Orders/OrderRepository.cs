@@ -59,7 +59,7 @@ namespace Ciber.Models.Repository.Orders
                              ProductName = product.Name,
                              ProductCategory_ID = product.ProductCategoryId,
                              ProductCategoryName = productCategory.Name,
-                             OrderDate = DateTime.Parse(order.OrderDate.ToString()).ToString("dd/MM/yyyy HH:mm"),
+                             OrderDate = DateTime.Parse(order.OrderDate.ToString()).ToString("dd/MM/yyyy"),
                              Amount = order.Amount,
                              Status = order.Status,
                          });
