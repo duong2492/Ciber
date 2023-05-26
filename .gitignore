@@ -5,3 +5,5 @@
 /.vs
 /Ciber/bin/Debug/net6.0
 /Ciber/obj
+/CiberTest/obj
+/CiberTest/bin/Debug/net6.0
