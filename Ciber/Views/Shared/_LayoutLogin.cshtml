@@ -1,12 +1,4 @@
-﻿@{
-    var login_username = Context.Session.GetString("Login");
-    if (login_username == null)
-    {
-        Context.Response.Redirect("/Login");
-    }
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,7 +18,7 @@
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>*@
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                @*<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @if (login_username != null)
                         {
@@ -38,7 +30,7 @@
                             </li>
                         }
                     </ul>
-                </div>
+                </div>*@
             </div>
         </nav>
     </header>

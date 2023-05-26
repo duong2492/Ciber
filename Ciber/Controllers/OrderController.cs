@@ -24,10 +24,10 @@ namespace Ciber.Controllers
 
         public ActionResult Index([FromQuery] int ProductCategory_ID)
         {
-            if (HttpContext.Session.Get("Login") == null)
-            {
-                return Redirect("/Login/Index");
-            }
+            //if (HttpContext.Session.Get("Login") == null)
+            //{
+            //    return Redirect("/Login/Index");
+            //}
             var orders = from order in _orderRepository.GetOrdersList(ProductCategory_ID)
                          select order;
             var productcategories = from pc in _productCategoryRepository.GetProductCategories()
@@ -85,10 +85,10 @@ namespace Ciber.Controllers
 
         public ActionResult Create()
         {
-            if (HttpContext.Session.Get("Login") == null)
-            {
-                return Redirect("/Login/Index");
-            }
+            //if (HttpContext.Session.Get("Login") == null)
+            //{
+            //    return Redirect("/Login/Index");
+            //}
             var products = from p in _productRepository.GetProducts()
                            select p;
             var customers = from c in _customerRepository.GetCustomers()
