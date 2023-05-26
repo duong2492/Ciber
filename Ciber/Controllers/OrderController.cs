@@ -50,14 +50,16 @@ namespace Ciber.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Order d = new Order();
-                    d.OrderName = order.OrderName;
-                    d.CustomerId = order.Customer_ID;
-                    d.ProductId = order.Product_ID;
-                    d.CreateDate = DateTime.Now;
-                    d.Status = 1;
-                    d.OrderDate = DateTime.Parse(order.CreateDate);
-                    d.Amount = order.Amount;
+                    Order d = new ()
+                    {
+                        OrderName = order.OrderName,
+                        CustomerId = order.Customer_ID,
+                        ProductId = order.Product_ID,
+                        CreateDate = DateTime.Now,
+                        Status = 1,
+                        OrderDate = DateTime.Parse(order.CreateDate),
+                        Amount = order.Amount
+                    };
                     if (_orderRepository.CountOrder() < order.Amount)
                     {
                         TempData["Msg"] ="Can't order because product quantity < " + order.Amount + ".<br> Only "+ _orderRepository.ProductLeft((int)order.Product_ID) + " products left.";
