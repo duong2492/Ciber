@@ -118,7 +118,6 @@ namespace Ciber.Controllers
 
         public class OrderViewModel
         {
-
             public List<OrderDTO> OrderList { get; set; }
 
             public List<ProductCategory> CategoryProductList { get; set; }
