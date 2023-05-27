@@ -1,4 +1,4 @@
-namespace Ciber.Models
+namespace Ciber.Models.View
 {
     public class ErrorViewModel
     {

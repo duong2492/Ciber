@@ -3,6 +3,7 @@ using Ciber.Models.Repository.Customers;
 using Ciber.Models.Repository.Orders;
 using Ciber.Models.Repository.ProductCategories;
 using Ciber.Models.Repository.Products;
+using Ciber.Models.View;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 
@@ -116,19 +117,19 @@ namespace Ciber.Controllers
             return View(createOrderViewModel);
         }
 
-        public class OrderViewModel
-        {
-            public List<OrderDTO> OrderList { get; set; }
+        //public class OrderViewModel
+        //{
+        //    public List<OrderDTO> OrderList { get; set; }
 
-            public List<ProductCategory> CategoryProductList { get; set; }
-        }
-        public class CreateOrderViewModel
-        {
-            public OrderDTO Order { get; set; }
-            public List<Product> ProductList { get; set; }
+        //    public List<ProductCategory> CategoryProductList { get; set; }
+        //}
+        //public class CreateOrderViewModel
+        //{
+        //    public OrderDTO Order { get; set; }
+        //    public List<Product> ProductList { get; set; }
 
-            public List<Customer> CustomerList { get; set; }
-        }
+        //    public List<Customer> CustomerList { get; set; }
+        //}
 
     }
 }
