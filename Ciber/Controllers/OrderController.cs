@@ -14,8 +14,10 @@ namespace Ciber.Controllers
         private ICustomerRepository _customerRepository;
         private IProductRepository _productRepository;
         private IProductCategoryRepository _productCategoryRepository;
-        public OrderController()
+        private readonly ILogger<OrderController> _logger;
+        public OrderController(ILogger<OrderController> logger)
         {
+            _logger = logger;
             _orderRepository = new OrderRepository(new CiberDbContext());
             _customerRepository = new CustomerRepository(new CiberDbContext());
             _productRepository = new ProductRepository(new CiberDbContext());
@@ -24,21 +26,34 @@ namespace Ciber.Controllers
 
         public ActionResult Index([FromQuery] int ProductCategory_ID)
         {
-            var orders = from order in _orderRepository.GetAllOrders(ProductCategory_ID)
-                         select order;
-            var productcategories = from pc in _productCategoryRepository.GetProductCategories()
-                                    select pc;
-
             var orderViewModel = new OrderViewModel();
-            orderViewModel.OrderList = orders.ToList();
-            orderViewModel.CategoryProductList = productcategories.ToList();
+            try
+            {
+                var orders = from order in _orderRepository.GetAllOrders(ProductCategory_ID)
+                             select order;
+                var productcategories = from pc in _productCategoryRepository.GetProductCategories()
+                                        select pc;
 
+                orderViewModel.OrderList = orders.ToList();
+                orderViewModel.CategoryProductList = productcategories.ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+            }
             return View(orderViewModel);
         }
         public IActionResult GetProductCategory()
         {
-            ViewData.Model = from order in _productCategoryRepository.GetProductCategories()
-                             select order;
+            try
+            {
+                ViewData.Model = from order in _productCategoryRepository.GetProductCategories()
+                                 select order;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+            }
             return View();
         }
 
@@ -50,7 +65,7 @@ namespace Ciber.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Order d = new ()
+                    Order d = new()
                     {
                         OrderName = order.OrderName,
                         CustomerId = order.Customer_ID,
@@ -62,7 +77,7 @@ namespace Ciber.Controllers
                     };
                     if (_orderRepository.CountOrder() < order.Amount)
                     {
-                        TempData["Msg"] ="Can't order because product quantity < " + order.Amount + ".<br> Only "+ _orderRepository.ProductLeft((int)order.Product_ID) + " products left.";
+                        TempData["Msg"] = "Can't order because product quantity < " + order.Amount + ".<br> Only " + _orderRepository.ProductLeft((int)order.Product_ID) + " products left.";
                         return RedirectToAction("Create");
                     }
                     else
@@ -74,24 +89,30 @@ namespace Ciber.Controllers
                     }
                 }
             }
-            catch (DataException)
+            catch (Exception ex)
             {
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                _logger.LogError(ex.ToString());
             }
             return View(order);
         }
 
         public ActionResult Create()
         {
-            var products = from p in _productRepository.GetProducts()
-                           select p;
-            var customers = from c in _customerRepository.GetCustomers()
-                            select c;
-
             var createOrderViewModel = new CreateOrderViewModel();
-            createOrderViewModel.ProductList = products.ToList();
-            createOrderViewModel.CustomerList = customers.ToList();
-            createOrderViewModel.Order = new OrderDTO();
+            try
+            {
+                var products = from p in _productRepository.GetProducts()
+                               select p;
+                var customers = from c in _customerRepository.GetCustomers()
+                                select c;
+                createOrderViewModel.ProductList = products.ToList();
+                createOrderViewModel.CustomerList = customers.ToList();
+                createOrderViewModel.Order = new OrderDTO();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+            }
             return View(createOrderViewModel);
         }
 

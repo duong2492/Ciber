@@ -15,6 +15,7 @@ namespace Ciber.Controllers
 
         public IActionResult Index()
         {
+              _logger.LogError("The main page has been accessed");  
             return View();
         }
 

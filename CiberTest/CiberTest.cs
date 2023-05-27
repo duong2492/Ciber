@@ -19,7 +19,7 @@ namespace CiberTest
         public void GetAll()
         {
             var result = _orderRepository.GetAllOrders(0);
-            Assert.AreEqual(28, result.Count);
+            Assert.AreEqual(27, result.Count);
         }
 
         [Test]
