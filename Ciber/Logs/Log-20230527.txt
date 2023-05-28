@@ -3,3 +3,8 @@
 2023-05-27T15:55:29.2043793+07:00  [INF] Hosting environment: "Development" (c3307c92)
 2023-05-27T15:55:29.2044366+07:00  [INF] Content root path: "P:\Niteco\Ciber\" (b5d60022)
 2023-05-27T15:55:29.5983957+07:00 0HMQUI0FGCPB1:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2023-05-27T16:00:49.8829690+07:00  [INF] Now listening on: "http://localhost:5291" (d826f4b8)
+2023-05-27T16:00:49.8969493+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-05-27T16:00:49.8978697+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-05-27T16:00:49.8979189+07:00  [INF] Content root path: "P:\Niteco\Ciber\" (b5d60022)
+2023-05-27T16:00:50.1269514+07:00 0HMQUI3F4ASTE:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
